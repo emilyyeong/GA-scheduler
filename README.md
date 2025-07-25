@@ -36,9 +36,7 @@ cd GA-scheduler
 ```
 
 ### 3. Open the Application:
-Locate the `homepage.html` file within the project directory and open it directly in your preferred web browser (e.g., Chrome, Firefox, Edge).
-<br>
-Alternatively, you can execute it directly using the below command in the command line:
+Then, you can execute it directly using the below command in the command line:
 ```bash
 homepage.html
 ```
