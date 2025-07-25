@@ -5,7 +5,7 @@ let preferences = {};
 const TODAY = new Date('2025-07-23T00:00:00'); // Set a fixed date for consistent testing. THIS IS A WEDNESDAY.
 const DAYS_OF_WEEK = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-// --- DOM ELEMENTS (will be null if not on the current page, handled by checks) ---
+// --- Document Object Model (DOM) ELEMENTS (will be null if not on the current page, handled by checks) ---
 const commitmentForm = document.getElementById('commitment-form');
 const commitmentsList = document.getElementById('commitments-list');
 const commitmentsNextBtn = document.getElementById('commitments-next-btn');
@@ -341,10 +341,8 @@ function removeTask(id) {
     renderTasks();
 }
 
-// --- PREFERENCES PAGE LOGIC ---
 // Preferences are captured when runScheduler is called.
 // No specific render function needed for preferences, as they are UI driven.
-
 
 // --- SCHEDULER & GENETIC ALGORITHM ---
 async function runScheduler() {
@@ -356,7 +354,6 @@ async function runScheduler() {
     }
 
     // Collect preferences (ensure these elements exist or handle null)
-    // Only collect if on the preferences page
     if (document.getElementById('page-preferences')) {
         const preferredTimesElements = document.querySelectorAll('#page-preferences input[type="checkbox"]:checked');
         const preferredTimes = Array.from(preferredTimesElements).map(cb => cb.value);
@@ -384,7 +381,7 @@ async function runScheduler() {
     // Use a timeout to allow the UI to update before the heavy computation starts
     setTimeout(() => {
         try {
-            // ** GENETIC ALGORITHM EXECUTION **
+            // GA EXECUTION
             const bestSchedule = geneticAlgorithm(commitments, tasks, preferences);
 
             // Store the best schedule to local storage before navigating
@@ -418,7 +415,6 @@ function geneticAlgorithm(commitments, tasks, preferences) {
     const ELITISM_RATE = 0.1; // Keep top 10% of population
 
     // --- 1. PREPARE DATA ---
-    // **FIX**: Calculate the Monday of the week for accurate date calculations.
     const todayDayOfWeek = TODAY.getDay(); // Sunday: 0, ..., Wednesday: 3, ...
     // JS Sunday is 0. If it's Sunday, we need to go back 6 days to get to Monday. Otherwise, it's day number - 1.
     const offsetToMonday = todayDayOfWeek === 0 ? 6 : todayDayOfWeek - 1;
@@ -515,7 +511,7 @@ function geneticAlgorithm(commitments, tasks, preferences) {
 
                 // b. Urgency Score (based on priority and due date)
                 const dueDate = new Date(block.due + "T23:59:59"); 
-                // **FIX**: Calculate the slot's actual date based on the Monday of the week.
+                // Calculate the slot's actual date based on the Monday of the week.
                 const slotDate = new Date(mondayOfWeek);
                 slotDate.setDate(mondayOfWeek.getDate() + dayIndex); 
 
@@ -552,7 +548,7 @@ function geneticAlgorithm(commitments, tasks, preferences) {
             }
         }
 
-        // d. Task Completion Score (Primary objective)
+        // d. Task Completion Score 
         let totalBlocksNeeded = 0;
         tasks.forEach(task => totalBlocksNeeded += Math.ceil(task.duration * 2));
         const placedBlocks = Object.values(taskCompletion).reduce((a, b) => a + b, 0);
@@ -594,7 +590,7 @@ function geneticAlgorithm(commitments, tasks, preferences) {
             child[i] = parent2[i];
         }
 
-        // Repair mechanism: Ensure all task blocks are present and none are duplicated excessively
+        // Ensure all task blocks are present and none are duplicated excessively
         const requiredTaskBlockCounts = {};
         tasks.forEach(task => {
             requiredTaskBlockCounts[task.id] = Math.ceil(task.duration * 2);
@@ -1029,7 +1025,7 @@ function renderMonthlyView(schedule) {
     if (!monthlyGrid || !monthHeader) return;
     monthlyGrid.innerHTML = ''; // Clear previous content
 
-    // **FIX**: Calculate the Monday of the week to correctly map schedule items to calendar dates.
+    // Calculate the Monday of the week to correctly map schedule items to calendar dates.
     const todayDayOfWeek = TODAY.getDay();
     const offsetToMonday = todayDayOfWeek === 0 ? 6 : todayDayOfWeek - 1;
     const mondayOfWeek = new Date(TODAY);
@@ -1064,7 +1060,7 @@ function renderMonthlyView(schedule) {
         dayCell.className = 'border-r border-b border-slate-200 p-2 min-h-[120px] flex flex-col relative calendar-day';
         dayCell.innerHTML = `<div class="font-bold text-slate-700 mb-1">${dayNum}</div>`;
 
-        // **FIX**: Correctly filter tasks for the current calendar day.
+        // Correctly filter tasks for the current calendar day.
         const tasksForDay = schedule.filter(item => {
             const itemDate = new Date(mondayOfWeek);
             itemDate.setDate(mondayOfWeek.getDate() + DAYS_OF_WEEK.indexOf(item.day));
