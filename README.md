@@ -23,26 +23,26 @@ This project highlights the effectiveness of AI-driven adaptive scheduling solut
 ## How to Run Locally
 This application is entirely client-side, meaning you don't need any special server setup or backend dependencies to run it.
 
-### Clone the Repository:
+## Clone the Repository:
 
-## 1. Open your terminal or command prompt and navigate to the directory where you want to store the project. Then, run the following command:
+### 1. Open your terminal or command prompt and navigate to the directory where you want to store the project. Then, run the following command:
 ```bash
-git clone https://github.com/your-username/your-repository-name.git
-# Replace 'your-username/your-repository-name' with your actual GitHub repo path
+git clone https://github.com/emilyyeong/GA-scheduler.git
 ```
 
-2. Navigate to the Project Directory:
+### 2. Navigate to the Project Directory:
 Change into the newly cloned project directory:
-
+```bash
 cd your-repository-name
+```
 
-Open the Application:
+### 3. Open the Application:
 Locate the homepage.html file within the project directory and open it directly in your preferred web browser (e.g., Chrome, Firefox, Edge).
-
+<br>
 Alternatively, you can use a live server extension in your code editor (like "Live Server" for VS Code) for a more convenient development experience, though it's not strictly necessary for running the application.
 
-Usage
-Once the homepage.html file is open in your browser:
+## Usage
+1. Once the homepage.html file is open in your browser:
 
 Click the "Get Started" button on the home page.
 
