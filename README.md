@@ -33,7 +33,7 @@ git clone https://github.com/emilyyeong/GA-scheduler.git
 ### 2. Navigate to the Project Directory:
 Change into the newly cloned project directory:
 ```bash
-cd your-repository-name
+cd GA-scheduler
 ```
 
 ### 3. Open the Application:
