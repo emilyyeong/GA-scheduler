@@ -37,7 +37,7 @@ cd GA-scheduler
 ```
 
 ### 3. Open the Application:
-Locate the homepage.html file within the project directory and open it directly in your preferred web browser (e.g., Chrome, Firefox, Edge).
+Locate the `homepage.html` file within the project directory and open it directly in your preferred web browser (e.g., Chrome, Firefox, Edge).
 <br>
 Alternatively, you can use a live server extension in your code editor (like "Live Server" for VS Code) for a more convenient development experience, though it's not strictly necessary for running the application.
 
