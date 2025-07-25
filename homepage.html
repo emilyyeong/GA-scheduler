@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive Study Planner - Home</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div id="app" class="min-h-screen flex flex-col items-center justify-center p-4">
+        <div class="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-xl p-6 md:p-10 border border-slate-200">
+
+            <div id="page-home" class="page text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-indigo-600 mb-4">Adaptive Study Planner 📚</h1>
+                <p class="text-slate-600 max-w-2xl mx-auto mb-8">Welcome! Feeling overwhelmed from creating schedules manually? Try us out to create your auto-generated personalized schedule today! This tool uses a genetic algorithm to build a smart timetable tailored to your classes, tasks, and personal preferences.</p>
+                <a href="commitments.html" id="start-over-btn" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform transform hover:scale-105">
+                    Get Started
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

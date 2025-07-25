@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 2: Tasks</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div id="app" class="min-h-screen flex flex-col items-center justify-center p-4">
+        <div class="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-xl p-6 md:p-10 border border-slate-200">
+            <div id="progress-header" class="mb-8">
+                <h2 id="progress-title" class="text-2xl font-bold text-slate-700 mb-2">Step 2: Your Tasks</h2>
+                <div class="w-full bg-slate-200 rounded-full h-2.5">
+                    <div id="progress-bar" class="bg-indigo-600 h-2.5 rounded-full" style="width: 50%"></div>
+                </div>
+            </div>
+
+            <div id="page-tasks" class="page">
+                 <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Add Tasks & Assignments</h3>
+                        <p class="text-sm text-slate-500 mb-4">List everything you need to get done. Tasks due within 5 days will be auto-prioritized.</p>
+                        <form id="task-form" class="space-y-4">
+                            <input id="task-name" type="text" placeholder="Task Name (e.g., 'Physics Lab Report')" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                            <input id="task-duration" type="number" placeholder="Est. Time to Complete (hours)" min="0.5" step="0.5" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                            <input id="task-due" type="date" title="Due Date" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                            <div>
+                                <label for="task-priority" class="block text-sm font-medium text-slate-700">Priority (1=Low, 10=High)</label>
+                                <input id="task-priority" type="range" min="1" max="10" value="5" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                            </div>
+                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition">Add Task</button>
+                        </form>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Your Task List</h3>
+                        <div id="tasks-list" class="h-80 overflow-y-auto space-y-3 p-3 bg-slate-100 rounded-lg custom-scrollbar">
+                            <p class="text-slate-500 text-center py-10">Add at least one task to continue.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-8">
+                    <button onclick="navigate('page-commitments')" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-6 rounded-lg transition">Back</button>
+                    <button id="tasks-next-btn" onclick="navigate('page-preferences')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg transition disabled:bg-slate-400 disabled:cursor-not-allowed" disabled>Next</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

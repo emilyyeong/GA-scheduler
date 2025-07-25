@@ -1,0 +1,52 @@
+body { 
+    font-family: 'Inter', sans-serif; 
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.custom-scrollbar::-webkit-scrollbar { 
+    width: 8px; 
+}
+.custom-scrollbar::-webkit-scrollbar-track { 
+    background: #f1f5f9; 
+}
+.custom-scrollbar::-webkit-scrollbar-thumb { 
+    background: #94a3b8; 
+    border-radius: 10px; 
+}
+.time-input-container input { 
+    width: 60px; 
+    text-align: center; 
+}
+.time-input-container button { 
+    transition: background-color 0.2s; 
+}
+.time-input-container .active { 
+    background-color: #4f46e5; 
+    color: white; 
+}
+#error-message-box {
+    display: none;
+    animation: slideIn 0.3s ease-out;
+}
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Drag and Drop Styles */
+.task-block.dragging {
+    opacity: 0.5;
+    border: 2px dashed #4f46e5;
+    cursor: grabbing;
+}
+.drop-zone.drop-target-valid {
+    background-color: #e0e7ff !important; /* A light indigo to show valid drop target */
+    transition: background-color 0.2s ease;
+}
+.task-block {
+    cursor: grab;
+}
+/* Calendar Styles */
+#monthly-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.calendar-day { min-height: 120px; }
